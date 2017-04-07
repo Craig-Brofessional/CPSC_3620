@@ -1,0 +1,14 @@
+#%Module1.0
+##
+## lammps/29Aug14-sp-k20  modulefile
+##
+proc ModulesHelp { } {
+    puts stderr "lammps/29Aug14-sp-k20 - sets the environment for LAMMPS 17Dec13-dp"
+}
+
+module-whatis   "sets the environment for LAMMPS 29Aug14-sp-k20"
+
+module add intel/13.0 openmpi/1.8.1 cuda-toolkit/6.0.37
+
+prepend-path PATH /software/lammps/29Aug14-sp-k20/bin
+

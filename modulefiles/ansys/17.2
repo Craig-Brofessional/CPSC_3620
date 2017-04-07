@@ -1,0 +1,40 @@
+#%Module1.0
+##
+## Ansys/17.2  modulefile
+##
+proc ModulesHelp { } {
+    puts stderr "ansys/17.2 - sets the environment for Ansys 17.2"
+}
+
+module-whatis   "sets the environment for Ansys 17.2"
+
+prepend-path LD_LIBRARY_PATH /software/ansys_inc/v172/ansys/lib/linx64
+
+prepend-path PATH /software/ansys_inc/v172/tgrid/bin
+prepend-path PATH /software/ansys_inc/v172/autodyn/bin
+prepend-path PATH /software/ansys_inc/v172/Icepak/bin
+prepend-path PATH /software/ansys_inc/v172/EKM/EKM-Desktop-14.0/bin
+prepend-path PATH /software/ansys_inc/v172/EKM/EKM-Desktop-14.0/bin/graphviz/bin
+prepend-path PATH /software/ansys_inc/v172/RSM/bin
+prepend-path PATH /software/ansys_inc/v172/Framework/bin
+prepend-path PATH /software/ansys_inc/v172/Framework/bin/Linux64
+prepend-path PATH /software/ansys_inc/v172/Tools/AddinSelector/bin
+prepend-path PATH /software/ansys_inc/v172/Tools/CheckSdkUsage/bin
+prepend-path PATH /software/ansys_inc/v172/Tools/mono/Linux64/bin
+prepend-path PATH /software/ansys_inc/v172/Tools/Build/bin
+prepend-path PATH /software/ansys_inc/v172/icemcfd/linux64_amd/icemcfd/output-interfaces/pvm3/bin
+prepend-path PATH /software/ansys_inc/v172/icemcfd/linux64_amd/bin
+prepend-path PATH /software/ansys_inc/v172/icemcfd/linux64_amd/dif/ug/lib/ug/tcl/bin
+prepend-path PATH /software/ansys_inc/v172/icemcfd/linux64_amd/dif/ug/bin
+prepend-path PATH /software/ansys_inc/v172/aisol/bin
+prepend-path PATH /software/ansys_inc/v172/ansys/intelmpi/linx64/bin
+prepend-path PATH /software/ansys_inc/v172/ansys/hpmpi/linx64/bin
+prepend-path PATH /software/ansys_inc/v172/ansys/ac4/bin
+prepend-path PATH /software/ansys_inc/v172/TurboGrid/bin
+prepend-path PATH /software/ansys_inc/v172/CFD-Post/bin
+prepend-path PATH /software/ansys_inc/v172/CFX/bin
+prepend-path PATH /software/ansys_inc/v172/polyflow/bin
+prepend-path PATH /software/ansys_inc/v172/fluent/bin
+prepend-path PATH /software/ansys_inc/v172/ansys/bin
+prepend-path PATH /software/ansys_inc/v172/AnsysEM/AnsysEM17.2/Linux64
+

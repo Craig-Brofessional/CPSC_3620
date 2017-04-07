@@ -1,0 +1,20 @@
+#%Module1.0
+##
+## fftw/3.3.3-sp-g481  modulefile
+##
+proc ModulesHelp { } {
+    puts stderr "fftw/3.3.3-sp-g481 - sets the environment for FFTW 3.3.3-sp-g481"
+}
+
+module-whatis   "sets the environment for FFTW 3.3.3-sp-g481"
+
+prereq gcc
+
+prepend-path LD_LIBRARY_PATH /software/fftw/3.3.3-sp-g481/lib
+prepend-path LIBRARY_PATH /software/fftw/3.3.3-sp-g481/lib
+prepend-path CPLUS_INCLUDE_PATH /software/fftw/3.3.3-sp-g481/include
+prepend-path C_INCLUDE_PATH /software/fftw/3.3.3-sp-g481/include
+prepend-path PATH /software/fftw/3.3.3-sp-g481/bin
+prepend-path MANPATH /software/fftw/3.3.3-sp-g481/share/man
+
+

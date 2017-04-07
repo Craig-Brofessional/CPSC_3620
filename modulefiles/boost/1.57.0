@@ -1,0 +1,19 @@
+#%Module1.0
+##
+## boost/1.57.0  modulefile
+##
+proc ModulesHelp { } {
+    puts stderr "boost/1.57.0 - sets the environment for BOOST 1.57.0"
+}
+
+module-whatis   "sets the environment for BOOST 1.57.0"
+
+module add mpfi/1.5.1
+
+prepend-path LD_LIBRARY_PATH    /software/boost/1.57.0/lib
+prepend-path LIBRARY_PATH       /software/boost/1.57.0/lib
+prepend-path CPLUS_INCLUDE_PATH /software/boost/1.57.0/include
+prepend-path C_INCLUDE_PATH     /software/boost/1.57.0/include
+
+setenv BOOST /software/boost/1.57.0
+

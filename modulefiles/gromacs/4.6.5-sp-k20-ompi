@@ -1,0 +1,24 @@
+#%Module1.0
+##
+## 4.6.5-sp-k20-ompi  modulefile
+##
+proc ModulesHelp { } {
+    puts stderr "4.6.5-sp-k20-ompi - sets the environment for GROMACS 4.6.5-sp-k20-ompi"
+}
+
+module-whatis   "sets the environment for GROMACS 4.6.5-sp-k20-ompi"
+
+prereq gcc
+prereq openmpi
+prereq fftw/3.3.3-sp-gcc-ompi
+prereq cuda-toolkit/5.5.22
+
+prepend-path LD_LIBRARY_PATH /software/gromacs/4.6.5-sp-k20-o164/lib
+prepend-path LIBRARY_PATH /software/gromacs/4.6.5-sp-k20-o164/lib
+prepend-path CPLUS_INCLUDE_PATH /software/gromacs/4.6.5-sp-k20-o164/include
+prepend-path C_INCLUDE_PATH /software/gromacs/4.6.5-sp-k20-o164/include
+prepend-path PATH /software/gromacs/4.6.5-sp-k20-o164/bin
+prepend-path MANPATH /software/gromacs/4.6.5-sp-k20-o164/share/man
+
+setenv GMXDATA "/software/gromacs/4.6.5-sp-k20-o164/share/gromacs/top"
+

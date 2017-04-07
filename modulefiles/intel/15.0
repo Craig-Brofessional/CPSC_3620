@@ -1,0 +1,104 @@
+#%Module1.0#####################################################################
+##
+## intel/15.0 modulefile
+##
+proc ModulesHelp { } {
+        puts stderr "intel/15.0 - sets the environment for Intel 15.0"
+}
+
+module-whatis   "Set up environment for Intel 15.0 Compiler"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+setenv INTEL_LICENSE_FILE /software/intel/licenses
+setenv LANGUAGE_TERRITORY en_US
+setenv MKLROOT /software/intel/composer_xe_2015.0.090/mkl
+setenv INSPECTOR_2015_DIR /software/intel/inspector_xe_2015.1.0.366509
+
+setenv VT_MPI impi4
+setenv IPPROOT /software/intel/composer_xe_2015.0.090/ipp
+setenv GDBSERVER_MIC /software/intel/composer_xe_2015.0.090/debugger/gdb/target/mic/bin/gdbserver
+setenv VTUNE_AMPLIFIER_XE_2015_DIR /software/intel/vtune_amplifier_xe_2015.1.0.367959
+setenv VT_ADD_LIBS "-ldwarf -lelf -lvtunwind -lnsl -lm -ldl -lpthread"
+
+setenv TBBROOT /software/intel/composer_xe_2015.0.090/tbb
+setenv GDB_CROSS /software/intel/composer_xe_2015.0.090/debugger/gdb/intel64_mic/bin/gdb-mic
+setenv ADVISOR_XE_2015_DIR /software/intel/advisor_xe_2015.1.0.367266
+
+setenv VT_LIB_DIR /software/intel/itac/9.0.1.033/intel64/lib
+setenv VT_ROOT /software/intel/itac/9.0.1.033
+setenv MPM_LAUNCHER /software/intel/composer_xe_2015.0.090/debugger/mpm/bin/start_mpm.sh
+setenv INTEL_PYTHONHOME /software/intel/composer_xe_2015.0.090/debugger/python/intel64/
+setenv VT_SLIB_DIR /software/intel/itac/9.0.1.033/intel64/slib
+setenv VT_ARCH intel64
+setenv I_MPI_ROOT /software/intel/impi/5.0.1.035
+
+prepend-path INCLUDE /software/intel/composer_xe_2015.0.090/mkl/include
+prepend-path CLASSPATH /software/intel/itac/9.0.1.033/intel64/lib
+
+prepend-path INFOPATH /software/intel/composer_xe_2015.0.090/debugger/gdb/intel64/share/info
+prepend-path INFOPATH /software/intel/composer_xe_2015.0.090/debugger/gdb/intel64_mic/share/info/
+
+prepend-path PATH /software/intel/advisor_xe_2015.1.0.367266/bin64
+prepend-path PATH /software/intel/vtune_amplifier_xe_2015.1.0.367959/bin64
+prepend-path PATH /software/intel/inspector_xe_2015.1.0.366509/bin64
+prepend-path PATH /software/intel/impi/5.0.1.035/intel64/bin
+prepend-path PATH /software/intel/itac/9.0.1.033/intel64/bin
+prepend-path PATH /software/intel/composer_xe_2015.0.090/bin/intel64
+prepend-path PATH /software/intel/composer_xe_2015.0.090/mpirt/bin/intel64
+prepend-path PATH /software/intel/composer_xe_2015.0.090/debugger/gdb/intel64_mic/bin
+
+prepend-path NLSPATH  /software/intel/composer_xe_2015.0.090/compiler/lib/intel64/locale/%l_%t/%N
+prepend-path NLSPATH  /software/intel/composer_xe_2015.0.090/ipp/lib/intel64/locale/%l_%t/%N
+prepend-path NLSPATH  /software/intel/composer_xe_2015.0.090/mkl/lib/intel64/locale/%l_%t/%N
+prepend-path NLSPATH  /software/intel/composer_xe_2015.0.090/debugger/gdb/intel64_mic/share/locale/%l_%t/%N
+prepend-path NLSPATH  /software/intel/composer_xe_2015.0.090/debugger/gdb/intel64/share/locale/%l_%t/%N
+
+prepend-path CPATH  /software/intel/composer_xe_2015.0.090/ipp/include
+prepend-path CPATH  /software/intel/composer_xe_2015.0.090/mkl/include
+prepend-path CPATH  /software/intel/composer_xe_2015.0.090/tbb/include
+
+prepend-path MIC_LIBRARY_PATH /software/intel/composer_xe_2015.0.090/compiler/lib/mic
+prepend-path MIC_LIBRARY_PATH /software/intel/composer_xe_2015.0.090/mpirt/lib/mic
+prepend-path MIC_LIBRARY_PATH /software/intel/composer_xe_2015.0.090/tbb/lib/mic
+
+prepend-path LIBRARY_PATH /software/intel/composer_xe_2015.0.090/compiler/lib/intel64
+prepend-path LIBRARY_PATH /software/intel/composer_xe_2015.0.090/ipp/../compiler/lib/intel64
+prepend-path LIBRARY_PATH /software/intel/composer_xe_2015.0.090/ipp/lib/intel64
+prepend-path LIBRARY_PATH /software/intel/composer_xe_2015.0.090/compiler/lib/intel64
+prepend-path LIBRARY_PATH /software/intel/composer_xe_2015.0.090/mkl/lib/intel64
+prepend-path LIBRARY_PATH /software/intel/composer_xe_2015.0.090/tbb/lib/intel64/gcc4.4
+
+prepend-path MANPATH  /software/intel/impi/5.0.1.035/man
+prepend-path MANPATH  /software/intel/itac/9.0.1.033/man
+prepend-path MANPATH  /software/intel/composer_xe_2015.0.090/man/en_US
+prepend-path MANPATH  /software/intel/composer_xe_2015.0.090/debugger/gdb/intel64/share/man
+prepend-path MANPATH  /software/intel/composer_xe_2015.0.090/debugger/gdb/intel64_mic/share/man
+
+prepend-path MIC_LD_LIBRARY_PATH /software/intel/composer_xe_2015.0.090/compiler/lib/mic
+prepend-path MIC_LD_LIBRARY_PATH /software/intel/composer_xe_2015.0.090/mpirt/lib/mic
+prepend-path MIC_LD_LIBRARY_PATH /software/intel/composer_xe_2015.0.090/compiler/lib/mic
+prepend-path MIC_LD_LIBRARY_PATH /software/intel/composer_xe_2015.0.090/mkl/lib/mic
+prepend-path MIC_LD_LIBRARY_PATH /software/intel/composer_xe_2015.0.090/tbb/lib/mic
+
+prepend-path LD_LIBRARY_PATH /software/intel//impi/5.0.1.035/intel64/lib
+prepend-path LD_LIBRARY_PATH /software/intel//itac/9.0.1.033/mic/slib
+prepend-path LD_LIBRARY_PATH /software/intel//itac/9.0.1.033/intel64/slib
+prepend-path LD_LIBRARY_PATH /software/intel/composer_xe_2015.0.090/compiler/lib/intel64
+prepend-path LD_LIBRARY_PATH /software/intel/composer_xe_2015.0.090/mpirt/lib/intel64
+prepend-path LD_LIBRARY_PATH /software/intel/composer_xe_2015.0.090/ipp/../compiler/lib/intel64
+prepend-path LD_LIBRARY_PATH /software/intel/composer_xe_2015.0.090/ipp/lib/intel64
+prepend-path LD_LIBRARY_PATH /software/intel/composer_xe_2015.0.090/compiler/lib/intel64
+prepend-path LD_LIBRARY_PATH /software/intel/composer_xe_2015.0.090/mkl/lib/intel64
+prepend-path LD_LIBRARY_PATH /software/intel/composer_xe_2015.0.090/tbb/lib/intel64/gcc4.4
+
+setenv CC   icc
+setenv CXX  icpc
+setenv FC   ifort
+setenv F77  ifort
+setenv F90  ifort
+
+if [ module-info mode display ] {
+        ModulesHelp
+}

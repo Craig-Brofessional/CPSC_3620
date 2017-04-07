@@ -1,0 +1,37 @@
+#%Module1.0#####################################################################
+##
+## Qt/5.2.1  modulefile
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\tQt module"
+        puts stderr "\t****************************************************"
+        puts stderr "\n\t  This module sets up the following environment"
+        puts stderr "\t  variables for the samtools binaries:"
+        puts stderr "\t      PATH"
+        puts stderr "\n\t  Version $version\n"
+        puts stderr "\t****************************************************\n"
+}
+
+module-whatis	"Set up environment for Qt"
+
+# for Tcl script use only
+set     version      "5.1.2"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+prepend-path  PATH                /software/Qt/5.2.1/gcc_64/bin
+prepend-path  LIBRARY_PATH        /software/Qt/5.2.1/gcc_64/lib
+prepend-path  LD_LIBRARY_PATH     /software/Qt/5.2.1/gcc_64/lib
+prepend-path  CPLUS_INCLUDE_PATH  /software/Qt/5.2.1/gcc_64/include
+prepend-path  C_INCLUDE_PATH      /software/Qt/5.2.1/gcc_64/include
+
+setenv  QTDIR  "/software/Qt/5.2.1/gcc_64"
+
+
+if [ module-info mode display ] {
+        ModulesHelp
+}
+

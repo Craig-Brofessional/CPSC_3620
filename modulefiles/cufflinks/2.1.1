@@ -1,0 +1,30 @@
+#%Module1.0#####################################################################
+##
+## cufflinks/2.1.1  modulefile
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\tcufflinks module"
+        puts stderr "\t****************************************************"
+        puts stderr "\n\t  This module sets up the following environment"
+        puts stderr "\t  variables for the cufflinks binaries:"
+        puts stderr "\t      PATH"
+        puts stderr "\n\t  Version $version\n"
+        puts stderr "\t****************************************************\n"
+}
+
+module-whatis	"Set up environment for cufflinks"
+
+# for Tcl script use only
+set     version      "3.2.6"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+prepend-path  PATH   /software/cufflinks/2.1.1
+
+if [ module-info mode display ] {
+        ModulesHelp
+}
+

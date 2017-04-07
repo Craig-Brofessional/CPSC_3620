@@ -1,0 +1,37 @@
+#%Module1.0#####################################################################
+##
+## quantum-espresso/5.4  modulefile
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\tquantum-espresso module"
+        puts stderr "\t****************************************************"
+        puts stderr "\n\t  This module sets up the following environment"
+        puts stderr "\t  variables for the gsl libraries:"
+        puts stderr "\t      PATH"
+        puts stderr "\n\t  Version $version\n"
+        puts stderr "\t****************************************************\n"
+}
+
+module add gcc/4.8.1
+module add openmpi/1.10.3
+module add scalapack/2.0.2
+module add fftw/3.3.4-g481
+module add cuda-toolkit/7.5.18 
+
+module-whatis	"Set up environment for the Quantum Espresso 5.4"
+
+# for Tcl script use only
+set     version      "3.2.6"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+prepend-path  PATH      /software/espresso/5.4/bin
+prepend-path  LD_LIBRARY_PATH /software/intel/parallel_studio_xe_2016.2.062/compilers_and_libraries_2016/linux/mkl/lib/intel64
+
+if [ module-info mode display ] {
+        ModulesHelp
+}
+

@@ -1,0 +1,124 @@
+#%Module1.0#####################################################################
+##
+## intel/16.0 modulefile update2   
+##
+proc ModulesHelp { } {
+        puts stderr "intel/16.0 - sets the environment for Intel 16.0"
+}
+
+module-whatis   "Set up environment for Intel 16.0 Compiler"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+setenv INTEL_LICENSE_FILE /software/intel/licenses
+setenv LANGUAGE_TERRITORY en_US
+setenv ADVISOR_XE_2016_DIR /software/intel/advisor_xe_2016.1.30.450722
+setenv CLCK_ROOT /software/intel/clck/3.1.2.006
+setenv CPLUS_INCLUDE_PATH /software/intel/clck/3.1.2.006/include
+setenv DAALROOT /software/intel/compilers_and_libraries_2016.2.181/linux/daal
+setenv GDB_CROSS /software/intel/debugger_2016/gdb/intel64_mic/bin/gdb-mic
+setenv GDBSERVER_MIC /software/intel/debugger_2016/gdb/targets/mic/bin/gdbserver
+setenv I_MPI_ROOT /software/intel/compilers_and_libraries_2016.2.181/linux/mpi
+setenv INSPECTOR_2016_DIR /software/intel/inspector_xe_2016.1.2.450824
+setenv INTEL_PYTHONHOME /software/intel/debugger_2016/python/intel64/
+setenv IPPROOT /software/intel/compilers_and_libraries_2016.2.181/linux/ipp
+setenv MKLROOT /software/intel/compilers_and_libraries_2016.2.181/linux/mkl
+setenv MPM_LAUNCHER /software/intel/debugger_2016/mpm/mic/bin/start_mpm.sh
+setenv MPS_FILE_POSTFIX _%D-%T
+setenv MPS_I_MPI_STATS 20
+setenv MPS_I_MPI_STATS_FILE stats.txt
+setenv MPS_INTEL_LIBITTNOTIFY64 libmps_nopapi.so
+setenv MPS_KMP_FORKJOIN_FRAMES_MODE 3
+setenv MPS_LD_PRELOAD libmps_nopapi.so
+setenv MPS_TOOL_ROOT /software/intel/itac/9.1.2.024
+setenv TBBROOT /software/intel/compilers_and_libraries_2016.2.181/linux/tbb
+setenv VT_ADD_LIBS "-ldwarf -lelf -lvtunwind -lnsl -lm -ldl -lpthread"
+setenv VT_ARCH intel64
+setenv VT_LIB_DIR /software/intel/itac/9.1.2.024/intel64/lib
+setenv VT_MPI impi4
+setenv VT_ROOT /software/intel/itac/9.1.2.024
+setenv VT_SLIB_DIR /software/intel/itac/9.1.2.024/intel64/slib
+setenv VTUNE_AMPLIFIER_XE_2016_DIR /software/intel/vtune_amplifier_xe_2016.2.0.444464
+
+prepend-path CLASSPATH /software/intel/itac/9.1.2.024/intel64/lib
+prepend-path CLASSPATH /software/intel/compilers_and_libraries_2016.2.181/linux/daal/lib/daal.jar
+
+prepend-path CPATH /software/intel/compilers_and_libraries_2016.2.181/linux/ipp/include
+prepend-path CPATH /software/intel/compilers_and_libraries_2016.2.181/linux/mkl/include
+prepend-path CPATH /software/intel/compilers_and_libraries_2016.2.181/linux/tbb/include
+prepend-path CPATH /software/intel/compilers_and_libraries_2016.2.181/linux/daal/include
+
+prepend-path INFOPATH /software/intel/documentation_2016/en/debugger/gdb-ia/info/
+prepend-path INFOPATH /software/intel/documentation_2016/en/debugger/gdb-mic/info/
+prepend-path INFOPATH /software/intel/documentation_2016/en/debugger//gdb-igfx/info/
+
+prepend-path LD_LIBRARY_PATH /software/intel/itac/9.1.2.024/mic/slib
+prepend-path LD_LIBRARY_PATH /software/intel/itac/9.1.2.024/intel64/slib
+prepend-path LD_LIBRARY_PATH /software/intel/itac/9.1.2.024/mic/slib
+prepend-path LD_LIBRARY_PATH /software/intel/itac/9.1.2.024/intel64/slib
+prepend-path LD_LIBRARY_PATH /software/intel/compilers_and_libraries_2016.2.181/linux/compiler/lib/intel64
+prepend-path LD_LIBRARY_PATH /software/intel/compilers_and_libraries_2016.2.181/linux/compiler/lib/intel64_lin
+prepend-path LD_LIBRARY_PATH /software/intel/compilers_and_libraries_2016.2.181/linux/mpi/intel64/lib
+prepend-path LD_LIBRARY_PATH /software/intel/compilers_and_libraries_2016.2.181/linux/mpi/mic/lib
+prepend-path LD_LIBRARY_PATH /software/intel/compilers_and_libraries_2016.2.181/linux/ipp/lib/intel64
+prepend-path LD_LIBRARY_PATH /software/intel/compilers_and_libraries_2016.2.181/linux/compiler/lib/intel64
+prepend-path LD_LIBRARY_PATH /software/intel/compilers_and_libraries_2016.2.181/linux/mkl/lib/intel64
+prepend-path LD_LIBRARY_PATH /software/intel/compilers_and_libraries_2016.2.181/linux/tbb/lib/intel64/gcc4.4
+prepend-path LD_LIBRARY_PATH /software/intel/debugger_2016/libipt/intel64/lib
+prepend-path LD_LIBRARY_PATH /software/intel/compilers_and_libraries_2016.2.181/linux/daal/lib/intel64_lin
+prepend-path LD_LIBRARY_PATH /software/intel/compilers_and_libraries_2016.2.181/linux/daal/../tbb/lib/intel64_lin/gcc4.4
+prepend-path LD_LIBRARY_PATH /software/intel/compilers_and_libraries_2016.2.181/linux/daal/../compiler/lib/intel64_lin
+
+prepend-path LIBRARY_PATH /software/intel/clck/3.1.2.006/lib/intel64
+prepend-path LIBRARY_PATH /software/intel/compilers_and_libraries_2016.2.181/linux/ipp/lib/intel64
+prepend-path LIBRARY_PATH /software/intel/compilers_and_libraries_2016.2.181/linux/compiler/lib/intel64
+prepend-path LIBRARY_PATH /software/intel/compilers_and_libraries_2016.2.181/linux/mkl/lib/intel64
+prepend-path LIBRARY_PATH /software/intel/compilers_and_libraries_2016.2.181/linux/tbb/lib/intel64/gcc4.4
+prepend-path LIBRARY_PATH /software/intel/compilers_and_libraries_2016.2.181/linux/daal/lib/intel64_lin
+prepend-path LIBRARY_PATH /software/intel/compilers_and_libraries_2016.2.181/linux/daal/../tbb/lib/intel64_lin/gcc4.4
+prepend-path LIBRARY_PATH /software/intel/compilers_and_libraries_2016.2.181/linux/daal/../compiler/lib/intel64_lin
+
+prepend-path MANPATH /software/intel/itac/9.1.2.024/man
+prepend-path MANPATH /software/intel/man/common
+prepend-path MANPATH /software/intel/compilers_and_libraries_2016.2.181/linux/mpi/man
+prepend-path MANPATH /software/intel/compilers_and_libraries_2016.2.181/linux/man/en_US
+prepend-path MANPATH /software/intel/documentation_2016/en/debugger/gdb-ia/man/
+prepend-path MANPATH /software/intel/documentation_2016/en/debugger/gdb-mic/man/
+prepend-path MANPATH /software/intel/documentation_2016/en/debugger/gdb-igfx/man/
+
+prepend-path MIC_LD_LIBRARY_PATH /software/intel/compilers_and_libraries_2016.2.181/linux/compiler/lib/mic
+prepend-path MIC_LD_LIBRARY_PATH /software/intel/compilers_and_libraries_2016.2.181/linux/mpi/mic/lib
+prepend-path MIC_LD_LIBRARY_PATH /software/intel/compilers_and_libraries_2016.2.181/linux/compiler/lib/mic
+prepend-path MIC_LD_LIBRARY_PATH /software/intel/compilers_and_libraries_2016.2.181/linux/mkl/lib/mic
+prepend-path MIC_LD_LIBRARY_PATH /software/intel/compilers_and_libraries_2016.2.181/linux/tbb/lib/mic
+
+prepend-path MIC_LIBRARY_PATH /software/intel/compilers_and_libraries_2016.2.181/linux/compiler/lib/mic
+prepend-path MIC_LIBRARY_PATH /software/intel/compilers_and_libraries_2016.2.181/linux/mpi/mic/lib
+prepend-path MIC_LIBRARY_PATH /software/intel/compilers_and_libraries_2016.2.181/linux/tbb/lib/mic
+
+prepend-path NLSPATH /software/intel/compilers_and_libraries_2016.2.181/linux/compiler/lib/intel64/locale/%l_%t/%N
+prepend-path NLSPATH /software/intel/compilers_and_libraries_2016.2.181/linux/mkl/lib/intel64/locale/%l_%t/%N
+prepend-path NLSPATH /software/intel/debugger_2016/gdb/intel64_mic/share/locale/%l_%t/%N
+prepend-path NLSPATH /software/intel/debugger_2016/gdb/intel64/share/locale/%l_%t/%N
+
+prepend-path PATH /software/intel/advisor_xe_2016.1.30.450722/bin64
+prepend-path PATH /software/intel/vtune_amplifier_xe_2016.2.0.444464/bin64
+prepend-path PATH /software/intel/inspector_xe_2016.1.2.450824/bin64
+prepend-path PATH /software/intel/itac/9.1.2.024/intel64/bin
+prepend-path PATH /software/intel/itac/9.1.2.024/intel64/bin
+prepend-path PATH /software/intel/clck/3.1.2.006/bin/intel64
+prepend-path PATH /software/intel/compilers_and_libraries_2016.2.181/linux/bin/intel64
+prepend-path PATH /software/intel/compilers_and_libraries_2016.2.181/linux/mpi/intel64/bin
+prepend-path PATH /software/intel/debugger_2016/gdb/intel64_mic/bin
+###prepend-path PATH /software/intel/bin
+
+setenv CC   icc
+setenv CXX  icpc
+setenv FC   ifort
+setenv F77  ifort
+setenv F90  ifort
+
+if [ module-info mode display ] {
+        ModulesHelp
+}

@@ -1,0 +1,55 @@
+#%Module1.0#####################################################################
+##
+## Qt/4.8.5  modulefile
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\tQt module"
+        puts stderr "\t****************************************************"
+        puts stderr "\n\t  This module sets up the following environment"
+        puts stderr "\t  variables for the samtools binaries:"
+        puts stderr "\t      PATH"
+        puts stderr "\n\t  Version $version\n"
+        puts stderr "\t****************************************************\n"
+}
+
+module-whatis	"Set up environment for Qt"
+
+# for Tcl script use only
+set     version      "4.8.5"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+prepend-path  PATH                /software/Qt/4.8.5/bin
+prepend-path  LIBRARY_PATH        /software/Qt/4.8.5/lib
+prepend-path  LD_LIBRARY_PATH     /software/Qt/4.8.5/lib
+prepend-path  CPLUS_INCLUDE_PATH      /software/Qt/4.8.5/include
+prepend-path  CPLUS_INCLUDE_PATH      /software/Qt/4.8.5/include/Qt
+prepend-path CPLUS_INCLUDE_PATH      /software/Qt/4.8.5/include/Qt3Support
+prepend-path CPLUS_INCLUDE_PATH      /software/Qt/4.8.5/include/QtCore
+prepend-path CPLUS_INCLUDE_PATH      /software/Qt/4.8.5/include/QtDBus
+prepend-path CPLUS_INCLUDE_PATH      /software/Qt/4.8.5/include/QtDeclarative
+prepend-path CPLUS_INCLUDE_PATH      /software/Qt/4.8.5/include/QtDesigner
+prepend-path CPLUS_INCLUDE_PATH      /software/Qt/4.8.5/include/QtGui
+prepend-path CPLUS_INCLUDE_PATH      /software/Qt/4.8.5/include/QtHelp
+prepend-path CPLUS_INCLUDE_PATH      /software/Qt/4.8.5/include/QtMultimedia
+prepend-path CPLUS_INCLUDE_PATH      /software/Qt/4.8.5/include/QtNetwork
+prepend-path CPLUS_INCLUDE_PATH      /software/Qt/4.8.5/include/QtOpenGL
+prepend-path CPLUS_INCLUDE_PATH      /software/Qt/4.8.5/include/QtScript
+prepend-path CPLUS_INCLUDE_PATH      /software/Qt/4.8.5/include/QtScriptTools
+prepend-path CPLUS_INCLUDE_PATH      /software/Qt/4.8.5/include/QtSql
+prepend-path CPLUS_INCLUDE_PATH      /software/Qt/4.8.5/include/QtSvg
+prepend-path CPLUS_INCLUDE_PATH      /software/Qt/4.8.5/include/QtTest
+prepend-path CPLUS_INCLUDE_PATH      /software/Qt/4.8.5/include/QtUiTools
+prepend-path CPLUS_INCLUDE_PATH      /software/Qt/4.8.5/include/QtWebKit
+prepend-path CPLUS_INCLUDE_PATH      /software/Qt/4.8.5/include/QtXml
+prepend-path CPLUS_INCLUDE_PATH      /software/Qt/4.8.5/include/QtXmlPatterns
+setenv  QTDIR  "/software/Qt/4.8.5"
+
+
+if [ module-info mode display ] {
+        ModulesHelp
+}
+

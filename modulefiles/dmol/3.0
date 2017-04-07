@@ -1,0 +1,48 @@
+#%Module1.0#####################################################################
+##
+## dmol  modulefile
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\tdmol3 module"
+        puts stderr "\t****************************************************"
+        puts stderr "\n\t  This module sets up the following environment"
+        puts stderr "\t  variables for the dmol libraries:"
+        puts stderr "\t      PATH"
+        puts stderr "\t      LD_LIBRARY_PATH"
+        puts stderr "\n\t  Version $version\n"
+        puts stderr "\t****************************************************\n"
+}
+
+module-whatis	"Set up environment for dmol3"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+module add python/2.7.6
+
+prepend-path  PATH                 "/software/accelrys/Accelrys/MaterialsStudio55/share/bin"
+prepend-path  PATH                 "/software/accelrys/Accelrys/MaterialsStudio55/etc/DMol3/bin"
+prepend-path  PATH                 "/software/accelrys/Accelrys/MaterialsStudio55/bin"
+prepend-path  PATH                 "/opt/hpmpi/bin"
+prepend-path  LD_LIBRARY_PATH      "/software/accelrys/Accelrys/LicensePack/linux/lib"
+prepend-path  LD_LIBRARY_PATH      "/software/accelrys/Accelrys/MaterialsStudio55/lib"
+prepend-path  LD_LIBRARY_PATH      "//opt/hpmpi/lib"
+
+setenv	 ACCELRYS_LIC_PACK_DIR	    /software/accelrys/Accelrys/LicensePack
+setenv   MSI_LIC_PLATFORM           linux
+setenv   MSI_LICENSE_FILE           /software/accelrys/Accelrys/LicensePack/Licenses/msi_server.fil
+
+setenv   MPI_ROOT                   /opt/hpmpi
+setenv   MPI_REMSH                  /usr/bin/ssh
+setenv   MPI_COMMAND                "/opt/hpmpi/bin/mpirun -e MPI_REMSH=/usr/bin/ssh -prot -np "
+setenv   OMP_NUM_THREADS            1
+setenv   F_UFMTENDIAN               bug
+setenv   GATEWAY_TMP                "/local_scratch"
+setenv 	 MS_INSTALL_ROOT	   /software/accelrys/Accelrys/MaterialsStudio55
+
+if [ module-info mode display ] {
+        ModulesHelp
+}
+

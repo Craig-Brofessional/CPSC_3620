@@ -1,0 +1,59 @@
+#%Module1.0#####################################################################
+##
+## matlab/2014b  modulefile
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\tmatlab module"
+        puts stderr "\t****************************************************"
+        puts stderr "\n\t  This module sets up the following environment"
+        puts stderr "\t  variables for MATLAB:"
+        puts stderr "\t      MATLAB"
+              puts stderr "\t      MCRROOT"
+        puts stderr "\t      MCRROOT"
+        puts stderr "\t      XAPPLRESDIR"
+        puts stderr "\t      PATH"
+        puts stderr "\t      LD_LIBRARY_PATH"
+        puts stderr "\t      MANPATH"
+        puts stderr "\n\t  Version $version\n"
+        puts stderr "\t****************************************************\n"
+}
+
+module-whatis   "Set up environment for MATLAB 2014b (64-bit)"
+
+set hostname [ uname nodename ]
+
+# for Tcl script use only
+set     version      "3.2.6"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+setenv        MATLAB           "/software/matlab/R2014b"
+setenv        MCRROOT          "$env(MATLAB)"
+setenv        MCRJRE           "$env(MCRROOT)/sys/java/jre/glnxa64/jre/lib/amd64"
+setenv        XAPPLRESDIR      "$env(MCRROOT)/X11/app-defaults"
+
+prepend-path  PATH             "$env(MATLAB)/bin"
+prepend-path  PATH             "$env(MATLAB)/bin/glnxa64"
+prepend-path  PATH             "$env(MATLAB)/toolbox/distcomp/bin"
+
+prepend-path  LD_LIBRARY_PATH  "$env(MCRROOT)/runtime/glnxa64"
+prepend-path  LD_LIBRARY_PATH  "$env(MCRROOT)/bin/glnxa64"
+prepend-path  LD_LIBRARY_PATH  "$env(MCRROOT)/sys/os/glnxa64"
+
+prepend-path  LD_LIBRARY_PATH  "$env(MCRJRE)"
+prepend-path  LD_LIBRARY_PATH  "$env(MCRJRE)/native_threads"
+prepend-path  LD_LIBRARY_PATH  "$env(MCRJRE)/server"
+
+prepend-path  MANPATH          "$env(MCRJRE)/sys/java/jre/glnxa64/jre/man"
+
+if [ info exists env(TMPDIR) ] {
+   setenv MCR_CACHE_ROOT  "$env(TMPDIR)"
+} 
+
+if [ module-info mode display ] {
+        ModulesHelp
+}
+

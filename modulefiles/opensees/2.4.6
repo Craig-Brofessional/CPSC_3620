@@ -1,0 +1,30 @@
+#%Module1.0#####################################################################
+##
+## opensees/2.4.6  modulefile
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\topensees module"
+        puts stderr "\t****************************************************"
+        puts stderr "\n\t  This module sets up the following environment"
+        puts stderr "\t  variables for OpenSees:"
+        puts stderr "\t      PATH"
+        puts stderr "\t****************************************************\n"
+}
+
+module add gcc/5.3.0
+module add openmpi/1.8.4
+
+module-whatis	"Set up environment for OpenSees 2.4.6"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+prepend-path	PATH			/software/opensees/2.4.6/bin
+prepend-path    LD_LIBRARY_PATH         /software/intel/composer_xe_2015/mkl/lib/intel64
+
+if [ module-info mode display ] {
+        ModulesHelp
+}
+

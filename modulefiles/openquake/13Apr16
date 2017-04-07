@@ -1,0 +1,48 @@
+#%Module1.0#####################################################################
+##
+## openquake/13Apr16  modulefile
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\topenquake module"
+        puts stderr "\t****************************************************"
+        puts stderr "\n\t  This module sets up the following environment"
+        puts stderr "\t  variables for the netcdf libraries:"
+        puts stderr "\t      PATH"
+        puts stderr "\n\t  Version $version\n"
+        puts stderr "\t****************************************************\n"
+}
+
+module-whatis	"Set up environment for OpenQuake - Git version from 13 Apr 2016"
+
+module add gcc/5.3.0
+module add openmpi/1.8.4
+module add python/2.7.6
+module add hdf5/1.10.0
+module add gdal/1.11.1
+module add postgresql/9.4.0 
+module add postgis/2.2.1 
+
+# for Tcl script use only
+set     version      "3.2.6"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+setenv        Openquake        "/software/openquake/13Apr16"
+setenv        OpenquakeApps    "/software/openquake/apps"
+
+prepend-path  PATH             "$env(Openquake)/oq-engine/bin"
+
+prepend-path  PYTHONPATH       "$env(Openquake)/oq-engine"
+prepend-path  PYTHONPATH       "$env(Openquake)/oq-hazardlib"
+prepend-path  PYTHONPATH       "$env(Openquake)/oq-risklib"
+
+prepend-path  PYTHONPATH       "$env(OpenquakeApps)/lib/python2.7/site-packages"
+
+
+if [ module-info mode display ] {
+        ModulesHelp
+}
+

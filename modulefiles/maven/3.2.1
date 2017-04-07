@@ -1,0 +1,31 @@
+#%Module1.0#####################################################################
+##
+## maven/3.2.1  modulefile
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\tmaven/3.2.1 module"
+        puts stderr "\t****************************************************"
+        puts stderr "\n\t  This module sets up the following environment"
+        puts stderr "\t  variables for the GNU compilers:"
+        puts stderr "\t      PATH"
+        puts stderr "\n\t  Version $version\n"
+        puts stderr "\t****************************************************\n"
+}
+
+module-whatis	"Set up environment for Apache Maven 3.2.1"
+
+# for Tcl script use only
+set     version      "3.2.6"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+setenv		MAVEN_HOME		/software/maven/3.2.1
+prepend-path	PATH			$env(MAVEN_HOME)/bin
+
+if [ module-info mode display ] {
+        ModulesHelp
+}
+

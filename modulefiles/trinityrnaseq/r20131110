@@ -1,0 +1,34 @@
+#%Module1.0#####################################################################
+##
+## trinityrnaseq/r20131110  modulefile
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\ttrinityrnaseq module"
+        puts stderr "\t****************************************************"
+        puts stderr "\n\t  This module sets up the following environment"
+        puts stderr "\t  variables for the trinityrnaseq files:"
+        puts stderr "\t      PATH"
+        puts stderr "\n\t  Version $version\n"
+        puts stderr "\t****************************************************\n"
+}
+
+module-whatis	"Set up environment for the trinityrnaseq files"
+
+# for Tcl script use only
+set     version      "3.2.6"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+module add gcc/4.8.1
+module add bowtie/1.0.1
+
+prepend-path  PATH   /software/trinityrnaseq/r20131110
+prepend-path  PATH   /software/trinityrnaseq/r20131110/util
+
+if [ module-info mode display ] {
+        ModulesHelp
+}
+

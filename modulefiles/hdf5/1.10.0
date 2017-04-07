@@ -1,0 +1,34 @@
+#%Module1.0#####################################################################
+##
+## hdf5/1.10.0  modulefile
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\thdf5 module"
+        puts stderr "\t****************************************************"
+        puts stderr "\n\t  This module sets up the following environment"
+        puts stderr "\t  variables for the hdf5 libraries:"
+        puts stderr "\t      PATH"
+        puts stderr "\n\t  Version $version\n"
+        puts stderr "\t****************************************************\n"
+}
+
+module-whatis	"Set up environment for hdf5"
+
+# for Tcl script use only
+set     version      "3.2.6"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+prepend-path  PATH             "/software/hdf5/1.10.0/bin"
+prepend-path  INCLUDE_PATH     "/software/hdf5/1.10.0/include"
+prepend-path  C_INCLUDE_PATH   "/software/hdf5/1.10.0/include"
+prepend-path  LIBRARY_PATH     "/software/hdf5/1.10.0/lib"
+prepend-path  LD_LIBRARY_PATH  "/software/hdf5/1.10.0/lib"
+
+if [ module-info mode display ] {
+        ModulesHelp
+}
+

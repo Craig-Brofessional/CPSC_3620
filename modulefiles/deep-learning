@@ -1,0 +1,64 @@
+#%Module1.0#####################################################################
+##
+## caffe
+##
+
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\caffe module"
+        puts stderr "\t****************************************************\n"
+}
+
+module-whatis	"Set up environment for caffe"
+module add singularity/2.2.1
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+set-alias python {singularity exec -B /software:/software -B /scratch2:/scratch2 -B /local_scratch:/local_scratch /software/singularity-containers/ubuntu_dl_gpu.img /usr/bin/python}
+
+set-alias pip {singularity exec -B /software:/software -B /scratch2:/scratch2 -B /local_scratch:/local_scratch /software/singularity-containers/ubuntu_dl_gpu.img pip}
+
+set-alias digits-devserver {singularity exec -B /software:/software -B /scratch2:/scratch2 -B /local_scratch:/local_scratch /software/singularity-containers/ubuntu_dl_gpu.img digits-devserver}
+
+set-alias caffe {singularity exec -B /software:/software -B /scratch2:/scratch2 -B /local_scratch:/local_scratch /software/singularity-containers/ubuntu_dl_gpu.img caffe}
+
+set-alias ipython {singularity exec -B /software:/software -B /scratch2:/scratch2 -B /local_scratch:/local_scratch /software/singularity-containers/ubuntu_dl_gpu.img /usr/bin/ipython}
+
+set-alias classification {singularity exec -B /software:/software -B /scratch2:/scratch2 -B /local_scratch:/local_scratch /software/singularity-containers/ubuntu_dl_gpu.img classification}
+
+set-alias compute_image_mean {singularity exec -B /software:/software -B /scratch2:/scratch2 -B /local_scratch:/local_scratch /software/singularity-containers/ubuntu_dl_gpu.img compute_image_mean}
+
+set-alias convert_cifar_data {singularity exec -B /software:/software -B /scratch2:/scratch2 -B /local_scratch:/local_scratch /software/singularity-containers/ubuntu_dl_gpu.img convert_cifar_data}
+
+set-alias convert_imageset {singularity exec -B /software:/software -B /scratch2:/scratch2 -B /local_scratch:/local_scratch /software/singularity-containers/ubuntu_dl_gpu.img convert_imageset}
+
+set-alias convert_mnist_data {singularity exec -B /software:/software -B /scratch2:/scratch2 -B /local_scratch:/local_scratch /software/singularity-containers/ubuntu_dl_gpu.img convert_mnist_data}
+
+set-alias convert_mnist_siamese_data {singularity exec -B /software:/software -B /scratch2:/scratch2 -B /local_scratch:/local_scratch /software/singularity-containers/ubuntu_dl_gpu.img convert_mnist_siamese_data}
+
+set-alias device_query {singularity exec -B /software:/software -B /scratch2:/scratch2 -B /local_scratch:/local_scratch /software/singularity-containers/ubuntu_dl_gpu.img device_query}
+
+set-alias extract_features {singularity exec -B /software:/software -B /scratch2:/scratch2 -B /local_scratch:/local_scratch /software/singularity-containers/ubuntu_dl_gpu.img extract_features}
+
+set-alias finetune_net {singularity exec -B /software:/software -B /scratch2:/scratch2 -B /local_scratch:/local_scratch /software/singularity-containers/ubuntu_dl_gpu.img finetune_net}
+
+set-alias net_speed_benchmark {singularity exec -B /software:/software -B /scratch2:/scratch2 -B /local_scratch:/local_scratch /software/singularity-containers/ubuntu_dl_gpu.img net_speed_benchmark}
+
+set-alias test_net {singularity exec -B /software:/software -B /scratch2:/scratch2 -B /local_scratch:/local_scratch /software/singularity-containers/ubuntu_dl_gpu.img test_net}
+
+set-alias train_net {singularity exec -B /software:/software -B /scratch2:/scratch2 -B /local_scratch:/local_scratch /software/singularity-containers/ubuntu_dl_gpu.img train_net}
+
+set-alias upgrade_net_proto_binary {singularity exec -B /software:/software -B /scratch2:/scratch2 -B /local_scratch:/local_scratch /software/singularity-containers/ubuntu_dl_gpu.img upgrade_net_proto_binary}
+
+set-alias upgrade_net_proto_text {singularity exec -B /software:/software -B /scratch2:/scratch2 -B /local_scratch:/local_scratch /software/singularity-containers/ubuntu_dl_gpu.img upgrade_net_proto_text}
+
+set-alias upgrade_solver_proto_text {singularity exec -B /software:/software -B /scratch2:/scratch2 -B /local_scratch:/local_scratch /software/singularity-containers/ubuntu_dl_gpu.img upgrade_solver_proto_text}
+
+set-alias tensorboard {singularity exec -B /software:/software -B /scratch2:/scratch2 -B /local_scratch:/local_scratch /software/singularity-containers/ubuntu_dl_gpu.img tensorboard}
+
+if [ module-info mode display ] {
+        ModulesHelp
+}
+

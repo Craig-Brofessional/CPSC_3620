@@ -1,0 +1,28 @@
+#%Module#####################################################################
+# TACC local environment module file     $Date: 2016/09/24 21:27:16 $
+#
+#
+#############################################################################
+proc ModulesHelp { } {
+puts stderr "The jdk64/1.7.0 modulefile defines the default paths and environment"
+puts stderr "variables needed to use the Java 1.7.0 software and utilities"
+puts stderr "available in /share1/apps/teragrid/jdk64/jdk1.7.0_45, placing them before the vendor-supplied"
+puts stderr "paths in PATH and MANPATH.:"
+}
+
+module-whatis "Name: Java"
+module-whatis "Version: 1.7.0"
+module-whatis "Category: language"
+module-whatis "URL: http://java.sun.com"
+module-whatis "Description: Java"
+
+setenv JAVA_HOME    /software/java/1.7.0_51
+setenv JAVA_BINDIR  $env(JAVA_HOME)/bin
+setenv JAVA_ROOT    $env(JAVA_HOME)
+setenv JDK_HOME     $env(JAVA_HOME)
+setenv SDK_HOME     $env(JAVA_HOME)
+setenv JRE_HOME     $env(JAVA_HOME)/jre
+
+prepend-path  PATH  $env(JRE_HOME)/bin
+prepend-path  PATH  $env(JAVA_BINDIR)
+

@@ -1,0 +1,35 @@
+#%Module1.0#####################################################################
+##
+## postgis/2.2.1  modulefile
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\tpostgis module"
+        puts stderr "\t****************************************************"
+        puts stderr "\n\t  This module sets up the following environment"
+        puts stderr "\t  variables for the netcdf libraries:"
+        puts stderr "\t      PATH"
+        puts stderr "\n\t  Version $version\n"
+        puts stderr "\t****************************************************\n"
+}
+
+module load postgresql/9.4.0
+module load geos/3.5.0
+
+module-whatis	"Set up environment for postgis"
+
+# for Tcl script use only
+set     version      "3.2.6"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+prepend-path  C_INCLUDE_PATH   "/software/postgis/2.2.1/include"
+prepend-path  LIBRARY_PATH     "/software/postgis/2.2.1/lib"
+prepend-path  LD_LIBRARY_PATH  "/software/postgis/2.2.1/lib"
+
+if [ module-info mode display ] {
+        ModulesHelp
+}
+

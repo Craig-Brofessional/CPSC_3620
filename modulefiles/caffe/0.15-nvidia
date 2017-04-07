@@ -1,0 +1,70 @@
+#%Module1.0#####################################################################
+##
+## caffe
+##
+
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\cafe module"
+        puts stderr "\t****************************************************"
+        puts stderr "\n\t  This module sets up the following environment"
+        puts stderr "\t  variables for caffe:"
+        puts stderr "\t      PATH"
+        puts stderr "\t      LIBRARY_PATH"
+        puts stderr "\t      LD_LIBRARY_PATH"
+        puts stderr "\t      CPLUS_INCLUDE_PATH"
+        puts stderr "\n\t  Version $version\n"
+        puts stderr "\t****************************************************\n"
+}
+
+module-whatis	"Set up environment for caffe"
+module add gcc/4.4 cuda-toolkit/7.5.18 cmake/2.8.12 ffmpeg/2.4 opencv/2.4.9 anaconda3/2.5.0 cuDNN/7.0v4.0 hdf5/1.10.0
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+prepend-path LD_LIBRARY_PATH /software/caffe/gflags/lib
+prepend-path LD_LIBRARY_PATH /software/caffe/glog/lib/
+prepend-path LD_LIBRARY_PATH /software/caffe/leveldb/lib
+prepend-path LD_LIBRARY_PATH /software/caffe/lmdb/lib
+prepend-path LD_LIBRARY_PATH /software/caffe/snappy/lib
+prepend-path LD_LIBRARY_PATH /software/caffe/boost/lib
+prepend-path LD_LIBRARY_PATH /software/caffe/nccl/lib
+prepend-path LD_LIBRARY_PATH /software/caffe/protobuf/lib
+prepend-path LD_LIBRARY_PATH /software/caffe/anaconda-libs/
+prepend-path LD_LIBRARY_PATH /software/caffe/caffe/lib
+
+prepend-path LIBRARY_PATH /software/caffe/gflags/lib
+prepend-path LIBRARY_PATH /software/caffe/glog/lib/
+prepend-path LIBRARY_PATH /software/caffe/leveldb/lib
+prepend-path LIBRARY_PATH /software/caffe/lmdb/lib
+prepend-path LIBRARY_PATH /software/caffe/snappy/lib
+prepend-path LIBRARY_PATH /software/caffe/boost/lib
+prepend-path LIBRARY_PATH /software/caffe/nccl/lib
+prepend-path LIBRARY_PATH /software/caffe/protobuf/lib
+prepend-path LIBRARY_PATH /software/caffe/anaconda-libs/
+prepend-path LIBRARY_PATH /software/caffe/caffe/lib
+
+prepend-path CPLUS_INCLUDE_PATH /software/caffe/gflags/include/
+prepend-path CPLUS_INCLUDE_PATH /software/caffe/glog/include/
+prepend-path CPLUS_INCLUDE_PATH /software/caffe/leveldb/include/
+prepend-path CPLUS_INCLUDE_PATH /software/caffe/lmdb/include
+prepend-path CPLUS_INCLUDE_PATH /software/caffe/snappy/include
+prepend-path CPLUS_INCLUDE_PATH /software/caffe/boost/include
+prepend-path CPLUS_INCLUDE_PATH /software/caffe/nccl/include
+prepend-path CPLUS_INCLUDE_PATH /software/caffe/protobuf/include/
+prepend-path CPLUS_INCLUDE_PATH /software/caffe/caffe/include
+
+prepend-path PATH /software/caffe/gflags/bin
+prepend-path PATH /software/caffe/lmdb/bin
+prepend-path PATH /software/caffe/protobuf/bin
+prepend-path PATH /software/caffe/caffe/bin
+
+prepend-path PYTHONPATH /software/caffe/caffe/python
+prepend-path PYTHONPATH /software/caffe/protobuf/lib/python3.5/site-packages
+
+if [ module-info mode display ] {
+        ModulesHelp
+}
+

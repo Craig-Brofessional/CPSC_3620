@@ -1,0 +1,36 @@
+#%Module1.0#####################################################################
+##
+## postgresql/9.4.0  modulefile
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\tpostgresql module"
+        puts stderr "\t****************************************************"
+        puts stderr "\n\t  This module sets up the following environment"
+        puts stderr "\t  variables for the netcdf libraries:"
+        puts stderr "\t      PATH"
+        puts stderr "\n\t  Version $version\n"
+        puts stderr "\t****************************************************\n"
+}
+
+module-whatis	"Set up environment for postgresql"
+
+module add gcc/5.3.0
+
+# for Tcl script use only
+set     version      "3.2.6"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+prepend-path  PATH             "/software/postgresql/9.4.0/bin"
+prepend-path  C_INCLUDE_PATH   "/software/postgresql/9.4.0/include"
+prepend-path  LIBRARY_PATH     "/software/postgresql/9.4.0/lib"
+prepend-path  LD_LIBRARY_PATH  "/software/postgresql/9.4.0/lib"
+prepend-path  PKG_CONFIG_PATH  "/software/postgresql/9.4.0/lib/pkgconfig"
+
+if [ module-info mode display ] {
+        ModulesHelp
+}
+

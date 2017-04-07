@@ -1,0 +1,23 @@
+#%Module1.0
+##
+## 4.6.5-dp-ompi  modulefile
+##
+proc ModulesHelp { } {
+    puts stderr "4.6.5-dp-ompi - sets the environment for GROMACS 4.6.5-dp-ompi"
+}
+
+module-whatis   "sets the environment for GROMACS 4.6.5-dp-ompi"
+
+prereq gcc
+prereq openmpi
+prereq fftw/3.3.3-dp-gcc-ompi
+
+prepend-path LD_LIBRARY_PATH /software/gromacs/4.6.5-dp-o164/lib
+prepend-path LIBRARY_PATH /software/gromacs/4.6.5-dp-o164/lib
+prepend-path CPLUS_INCLUDE_PATH /software/gromacs/4.6.5-dp-o164/include
+prepend-path C_INCLUDE_PATH /software/gromacs/4.6.5-dp-o164/include
+prepend-path PATH /software/gromacs/4.6.5-dp-o164/bin
+prepend-path MANPATH /software/gromacs/4.6.5-dp-o164/share/man
+
+setenv GMXDATA "/software/gromacs/4.6.5-dp-o164/share/gromacs/top"
+

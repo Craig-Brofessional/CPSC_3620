@@ -1,0 +1,21 @@
+#%Module1.0
+##
+## fftw/3.3.3-dp-g481-o164  modulefile
+##
+proc ModulesHelp { } {
+    puts stderr "fftw/3.3.3-dp-g481-o164 - sets the environment for FFTW 3.3.3-dp-g481-o164"
+}
+
+module-whatis   "sets the environment for FFTW 3.3.3-dp-g481-o164"
+
+prereq gcc
+prereq openmpi
+
+prepend-path LD_LIBRARY_PATH /software/fftw/3.3.3-dp-g481-o164/lib
+prepend-path LIBRARY_PATH /software/fftw/3.3.3-dp-g481-o164/lib
+prepend-path CPLUS_INCLUDE_PATH /software/fftw/3.3.3-dp-g481-o164/include
+prepend-path C_INCLUDE_PATH /software/fftw/3.3.3-dp-g481-o164/include
+prepend-path PATH /software/fftw/3.3.3-dp-g481-o164/bin
+prepend-path MANPATH /software/fftw/3.3.3-dp-g481-o164/share/man
+
+

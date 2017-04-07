@@ -1,0 +1,20 @@
+#%Module1.0#####################################################################
+##
+##
+
+# for Tcl script use only
+set     version      "3.2.6"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+prepend-path  PATH               "/software/hwloc/1.10.1/bin"
+prepend-path  LIBRARY_PATH       "/software/hwloc/1.10.1/lib"
+prepend-path  LD_LIBRARY_PATH    "/software/hwloc/1.10.1/lib"
+prepend-path  C_INCLUDE_PATH     "/software/hwloc/1.10.1/include"
+
+if [ module-info mode display ] {
+        ModulesHelp
+}
+
+

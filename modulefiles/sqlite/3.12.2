@@ -1,0 +1,36 @@
+#%Module1.0#####################################################################
+##
+## SQLite 3.12.2 modulefile
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\tsqlite/3.12.2 module"
+        puts stderr "\t****************************************************"
+        puts stderr "\n\t  This module sets up the following environment"
+        puts stderr "\t  variables for the GNU compilers:"
+        puts stderr "\t      PATH"
+        puts stderr "\t      LD_LIBRARY_PATH"
+        puts stderr "\t      MANPATH"
+        puts stderr "\n\t  Version $version\n"
+        puts stderr "\t****************************************************\n"
+}
+
+
+module-whatis	"Set up environment for SQLite 3.12.2"
+
+# for Tcl script use only
+set     version      "3.2.6"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+prepend-path	PATH			/software/sqlite/3.12.2/bin
+prepend-path	LD_LIBRARY_PATH		/software/sqlite/3.12.2/lib
+prepend-path    C_INCLUDE               /software/sqlite/3.12.2/include
+prepend-path	MANPATH			/software/sqlite/3.12.2/share/man
+
+if [ module-info mode display ] {
+        ModulesHelp
+}
+

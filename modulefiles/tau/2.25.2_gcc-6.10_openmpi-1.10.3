@@ -1,0 +1,32 @@
+#%Module1.0#####################################################################
+##
+## tau/2.25.2_gcc-6.1.0_openmpi-1.10.3 modulefile
+##
+
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\ttau module"
+        puts stderr "\t****************************************************"
+        puts stderr "\n\t  This module sets up the following environment"
+        puts stderr "\t  variables for Tau:"
+        puts stderr "\t      PATH"
+        puts stderr "\n\t  Version $version\n"
+        puts stderr "\t****************************************************\n"
+}
+
+module-whatis	"Set up environment for Tau"
+module add gcc/6.1.0
+module add openmpi/1.10.3
+module add java/1.8.0
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+prepend-path  PATH                 /software/pdtoolkit/3.22.1_gcc-6.1.0_openmpi-1.10.3/x86_64/bin/
+prepend-path  PATH                 /software/tau/tau-2.25.2_gcc-6.10_openmpi-1.10.3/x86_64/bin/
+
+if [ module-info mode display ] {
+        ModulesHelp
+}
+

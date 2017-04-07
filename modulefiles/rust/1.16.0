@@ -1,0 +1,39 @@
+#%Module1.0#####################################################################
+##
+## rust/1.16.0  modulefile
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\trust/1.16.0 module"
+        puts stderr "\t****************************************************"
+        puts stderr "\n\t  This module sets up the following environment"
+        puts stderr "\t  variables for the rust compiler and cargo:"
+        puts stderr "\t      PATH"
+        puts stderr "\t      LIBRARY_PATH"
+        puts stderr "\t      LD_LIBRARY_PATH"
+        puts stderr "\t      MANPATH"
+        puts stderr "\n\t  Version 1.16.0\n"
+        puts stderr "\t****************************************************\n"
+}
+
+conflict rust
+
+module-whatis    "Sets up environment for rustc compiler and cargo."
+
+# for Tcl script use only
+set     version      "3.2.6"
+
+prepend-path    PATH                /software/rust/1.16.0/bin
+prepend-path    LIBRARY_PATH        /software/rust/1.16.0/lib
+prepend-path    LD_LIBRARY_PATH     /software/rust/1.16.0/lib
+prepend-path    MANPATH             /software/rust/1.16.0/share/man
+
+setenv          RUST_COMPILER_MODULE    "rust/1.16.0"
+setenv          CARGO_MODULE            "rust/1.16.0"
+setenv          RUST_DOC_PATH           "/software/rust/1.16.0/share/rust-1.16.0-doc.tar.gz"
+
+if [ module-info mode display ] {
+        ModulesHelp
+}
+

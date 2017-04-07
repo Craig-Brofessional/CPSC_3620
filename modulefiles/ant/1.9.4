@@ -1,0 +1,31 @@
+#%Module1.0#####################################################################
+##
+## ant/1.9.4  modulefile
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\tant/1.9.4 module"
+        puts stderr "\t****************************************************"
+        puts stderr "\n\t  This module sets up the following environment"
+        puts stderr "\t  variables for the GNU compilers:"
+        puts stderr "\t      PATH"
+        puts stderr "\n\t  Version $version\n"
+        puts stderr "\t****************************************************\n"
+}
+
+module-whatis	"Set up environment for Apache Ant 1.9.4"
+
+# for Tcl script use only
+set     version      "3.2.6"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+setenv		ANT_HOME		/software/ant/1.9.4
+prepend-path	PATH			$env(ANT_HOME)/bin
+
+if [ module-info mode display ] {
+        ModulesHelp
+}
+

@@ -1,0 +1,19 @@
+#%Module1.0
+##
+## Gaussian/g09 modulefile
+##
+proc ModulesHelp { } {
+    puts stderr "gaussian/g09 - sets the environment for Gaussian g09"
+}
+
+module-whatis  "sets the environment for Gaussian g09"
+
+set hostname [ uname nodename ]
+setenv  GAUSS_EXEDIR  /software/gaussian/g09/bsd:/software/gaussian/g09:/software/gaussian/g09/local
+setenv  GAUSS_LEXEDIR /software/gaussian/g09/linda-exe
+setenv  GAUSS_ARCHDIR /software/gaussian/g09/arch
+setenv  GAUSS_BSDDIR  /software/gaussian/g09/bsd
+setenv  GV_DIR        /software/gaussian/g09/gv
+setenv  G09BASIS      /software/gaussian/g09/basis
+setenv  g09root       /software/gaussian/g09
+prepend-path  PATH    /software/gaussian/g09/bsd:/software/gaussian/g09:/software/gaussian/g09/local

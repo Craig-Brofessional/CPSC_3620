@@ -1,0 +1,12 @@
+#%Module1.0
+##
+## Comsol/4.3b modulefile
+##
+proc ModulesHelp { } {
+    puts stderr "comsol/4.3b - sets the environment for Comsol 4.3b"
+}
+
+module-whatis   "sets the environment for Comsol 4.3b"
+
+prepend-path PATH    /software/comsol/comsol43b/bin
+

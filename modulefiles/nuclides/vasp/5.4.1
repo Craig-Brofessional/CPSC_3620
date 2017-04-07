@@ -1,0 +1,22 @@
+#%Module1.0#####################################################################
+##
+## vasp  modulefile
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\stata module"
+        puts stderr "\t****************************************************"
+        puts stderr "\n\t  This module sets up the following environment"
+        puts stderr "\t  variables for vasp:"
+        puts stderr "\t      PATH"
+        puts stderr "\n\t  Version $version\n"
+        puts stderr "\t****************************************************\n"
+}
+
+module-whatis   "Set up environment for vasp 5.4.1"
+set     version         "5.4.1"
+set     vasp_dir        "/common1/nuclides/opt/VASP/VASP_5.4.1"
+
+module load intel/16.0 
+prepend-path  PATH      $vasp_dir/bin

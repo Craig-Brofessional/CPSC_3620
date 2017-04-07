@@ -1,0 +1,35 @@
+#%Module1.0#####################################################################
+##
+## git/2.6.3  modulefile
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\tgit module"
+        puts stderr "\t****************************************************"
+        puts stderr "\n\t  This module sets up the following environment"
+        puts stderr "\t  variables for the git libraries:"
+        puts stderr "\t      LD_LIBRARY_PATH"
+        puts stderr "\t      PATH"
+        puts stderr "\t      MANPATH"
+        puts stderr "\n\t  Version $version\n"
+        puts stderr "\t****************************************************\n"
+}
+
+module-whatis	"Set up environment for QEMU"
+
+# for Tcl script use only
+set     version      "3.2.6"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+prepend-path  PATH             "/software/git/2.6.3/bin"
+prepend-path  LD_LIBRARY_PATH  "/software/git/2.6.3/lib64"
+prepend-path  MANPATH          "/software/git/2.6.3/share/man"
+
+
+if [ module-info mode display ] {
+        ModulesHelp
+}
+

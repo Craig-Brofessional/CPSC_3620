@@ -1,0 +1,38 @@
+#%Module1.0#####################################################################
+##
+## hadoop/1.2.1  modulefile
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\tHadoop module"
+        puts stderr "\t****************************************************"
+        puts stderr "\n\t  This module sets up the following environment"
+        puts stderr "\t  variables for the hadoop libraries:"
+        puts stderr "\t      PATH"
+        puts stderr "\t      LD_LIBRARY_PATH"
+        puts stderr "\t      LIBRARY_PATH"
+        puts stderr "\t      C_INCLUDE_PATH"
+        puts stderr "\n\t  Version $version\n"
+        puts stderr "\t****************************************************\n"
+}
+
+module-whatis	"Set up environment for Hadoop"
+
+# for Tcl script use only
+set     version      "3.2.6"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+setenv        HADOOP_PREFIX    "/software/hadoop/1.2.1"
+prepend-path  PATH             "$env(HADOOP_PREFIX)/bin"
+prepend-path  LD_LIBRARY_PATH  "$env(HADOOP_PREFIX)/lib"
+setenv        JNI_LIBRARY_PATH "/opt/orangefs/lib"
+setenv        HADOOP_CLASSPATH "$env(JNI_LIBRARY_PATH)/ofs_hadoop.jar:$env(JNI_LIBRARY_PATH)/ofs_jni.jar"
+
+
+if [ module-info mode display ] {
+        ModulesHelp
+}
+

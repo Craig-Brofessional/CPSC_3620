@@ -1,0 +1,38 @@
+#%Module1.0#####################################################################
+##
+## freefem++/3.37  modulefile
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\tfreefem++/3.37 module"
+        puts stderr "\t****************************************************"
+        puts stderr "\n\t  This module sets up the following environment"
+        puts stderr "\t  variables for the GNU compilers:"
+        puts stderr "\t      PATH"
+        puts stderr "\t      LD_LIBRARY_PATH"
+        puts stderr "\n\t  Version $version\n"
+        puts stderr "\t****************************************************\n"
+}
+
+conflict intel
+
+module add gcc/4.8.1
+module add openmpi/1.8.4
+
+module-whatis	"Set up environment for FreeFem++ 3.37"
+
+# for Tcl script use only
+set     version      "3.2.6"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+prepend-path	PATH			/software/freefem++/3.37/bin
+prepend-path	LD_LIBRARY_PATH		/software/freefem++/3.37/lib
+prepend-path	LD_LIBRARY_PATH		/software/intel/composer_xe_2015/mkl/lib/intel64
+
+if [ module-info mode display ] {
+        ModulesHelp
+}
+

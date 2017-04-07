@@ -1,0 +1,17 @@
+#%Module1.0
+##
+## nwchem/6.5-ib  modulefile
+##
+proc ModulesHelp { } {
+    puts stderr "nwchem/6.6-ib - sets the environment for NWChem 6.6-ib"
+}
+
+module-whatis   "sets the environment for NWChem 6.6-ib"
+
+module add intel/16.0
+module add openmpi/1.10.3
+
+prepend-path PATH /software/nwchem/6.6-ib/bin
+
+setenv NWCHEM_BASIS_LIBRARY /software/nwchem/6.6-ib/basis/libraries/
+setenv OMPI_MCA_mpi_cuda_support 0

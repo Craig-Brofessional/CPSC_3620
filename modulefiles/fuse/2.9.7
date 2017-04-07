@@ -1,0 +1,13 @@
+#%Module1.0
+##
+## fuse/2.9.7  modulefile
+##
+proc ModulesHelp { } {
+    puts stderr "fuse/2.9.7 - sets the environment for Fuse (mount in user space)"
+}
+
+module-whatis   "sets the environment for Fuse 2.9.7"
+
+prepend-path PATH /software/fuse/2.9.7/bin
+prepend-path LD_LIBRARY_PATH /software/fuse/2.9.7/lib
+

@@ -1,0 +1,13 @@
+#%Module1.0
+##
+## Abaqus/6.14 modulefile
+##
+proc ModulesHelp { } {
+    puts stderr "abaqus/6.14 - sets the environment for Abaqus 6.14"
+}
+
+module-whatis   "sets the environment for Abaqus 6.14"
+
+prepend-path PATH    /software/abaqus/6.14-1/code/bin
+setenv XAUTHORITY    ~/.Xauthority
+setenv ABA_PATH      /software/abaqus/6.14-1

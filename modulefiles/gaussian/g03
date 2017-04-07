@@ -1,0 +1,16 @@
+#%Module1.0
+##
+## Gaussian/g03 modulefile
+##
+proc ModulesHelp { } {
+    puts stderr "gaussian/g03 - sets the environment for Gaussian g03"
+}
+
+module-whatis  "sets the environment for Gaussian g03"
+
+set hostname [ uname nodename ]
+setenv  GAUSS_EXEDIR  /software/gaussian/g03
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+prepend-path  PATH  /software/gaussian/g03
+

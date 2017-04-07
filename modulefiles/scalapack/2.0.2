@@ -1,0 +1,19 @@
+#%Module1.0#####################################################################
+##
+## scalapack/2.0.2 modulefile
+##
+proc ModulesHelp { } {
+        puts stderr "scalapack/2.0.2 - sets the environment for ScaLAPACK 2.0.2"
+}
+
+module-whatis   "Set up environment for ScaLAPACK 2.0.2"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+prepend-path LIBRARY_PATH /software/scalapack/2.0.2/lib 
+prepend-path LD_LIBRARY_PATH /software/scalapack/2.0.2/lib
+
+if [ module-info mode display ] {
+        ModulesHelp
+}

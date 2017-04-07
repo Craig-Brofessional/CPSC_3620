@@ -1,0 +1,23 @@
+#%Module1.0
+##
+## 4.5.4-sp  modulefile
+##
+proc ModulesHelp { } {
+    puts stderr "4.5.4-sp - sets the environment for GROMACS 4.5.4-sp"
+}
+
+module-whatis   "sets the environment for GROMACS 4.5.4-sp"
+
+prereq gcc
+prereq openmpi
+prereq fftw/3.3.3-sp-gcc-ompi
+
+prepend-path LD_LIBRARY_PATH /software/gromacs/4.5.4-sp/lib
+prepend-path LIBRARY_PATH /software/gromacs/4.5.4-sp/lib
+prepend-path CPLUS_INCLUDE_PATH /software/gromacs/4.5.4-sp/include
+prepend-path C_INCLUDE_PATH /software/gromacs/4.5.4-sp/include
+prepend-path PATH /software/gromacs/4.5.4-sp/bin
+prepend-path MANPATH /software/gromacs/4.5.4-sp/share/man
+
+setenv GMXDATA "/software/gromacs/4.5.4-sp/share/gromacs/top"
+

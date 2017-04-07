@@ -1,0 +1,30 @@
+#%Module1.0#####################################################################
+##
+## cuDNN/7.0v4.0 modulefile
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\tcuDNN/7.0v4.0 module"
+}
+
+module-whatis   "Set up environment for cuDNN 7.0v4.0"
+
+set hostname [ uname nodename ]
+
+# for Tcl script use only
+set     version      "3.2.6"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+setenv        CUDNN_INSTALL_PATH           "/software/cuda-toolkit/cuDNN-7.0v4.0"
+
+prepend-path  LIBRARY_PATH       "$env(CUDNN_INSTALL_PATH)/lib64"
+prepend-path  LD_LIBRARY_PATH    "$env(CUDNN_INSTALL_PATH)/lib64"
+prepend-path  C_INCLUDE_PATH     "$env(CUDNN_INSTALL_PATH)/include"
+prepend-path  CPLUS_INCLUDE_PATH "$env(CUDNN_INSTALL_PATH)/include"
+
+if [ module-info mode display ] {
+        ModulesHelp
+}

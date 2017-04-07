@@ -1,0 +1,29 @@
+#%Module1.0#####################################################################
+##
+## rabbitmq/8Feb16  modulefile
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\tRabbitMQ server module"
+}
+
+module-whatis	"Set up environment for RabbitMQ server"
+
+module add earlang/18.2.1
+
+# for Tcl script use only
+set     version      "3.2.6"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+setenv        RabbitMQ         "/software/rabbitmq/8Feb16"
+
+prepend-path  PATH             "$env(RabbitMQ)/sbin"
+
+
+if [ module-info mode display ] {
+        ModulesHelp
+}
+

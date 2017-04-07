@@ -1,0 +1,23 @@
+#%Module1.0
+##
+## amber/14  modulefile
+##
+proc ModulesHelp { } {
+    puts stderr "amber/14 - sets the environment for AMBER 14"
+}
+
+module-whatis   "sets the environment for AMBER 14"
+
+module add intel/15.0 openmpi/1.6.4 cuda-toolkit/6.0.37
+
+prepend-path LD_LIBRARY_PATH /software/amber/14/lib
+prepend-path LIBRARY_PATH /software/amber/14/lib
+prepend-path CPLUS_INCLUDE_PATH /software/amber/14/include
+prepend-path C_INCLUDE_PATH /software/amber/14/include
+prepend-path PATH /software/amber/14/bin
+prepend-path MANPATH /software/amber/14/share/man
+
+setenv AMBERHOME /software/amber/14
+setenv MKL_HOME /software/intel/composer_xe_2015.0.090/mkl
+setenv CUDA_HOME /software/cuda-toolkit/6.0.37
+

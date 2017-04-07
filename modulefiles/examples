@@ -1,0 +1,29 @@
+#%Module1.0#####################################################################
+##
+## examples modulefile
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\texamples module"
+        puts stderr "\t****************************************************"
+        puts stderr "\n\t  This module sets up the following environment"
+        puts stderr "\t  variables for example:"
+        puts stderr "\t      PATH"
+        puts stderr "\t****************************************************\n"
+}
+
+module-whatis	"Set up environment for example"
+
+# for Tcl script use only
+set     version      "3.2.6"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+prepend-path  PATH                 "/software/examples/"
+
+if [ module-info mode display ] {
+        ModulesHelp
+}
+

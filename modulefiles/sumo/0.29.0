@@ -1,0 +1,29 @@
+#%Module1.0#####################################################################
+##
+## sumo  modulefile
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\tSimulation of Ubran MObility module (sumo)"
+        puts stderr "\t****************************************************"
+        puts stderr "\n\t  Version $version\n"
+        puts stderr "\t****************************************************\n"
+}
+
+module add gcc/4.8.1
+
+
+# for Tcl script use only
+set     version      "3.2.6"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+setenv	SUMO_HOME	/software/sumo/0.29.0
+prepend-path	PATH	/software/sumo/0.29.0/bin
+
+if [ module-info mode display ] {
+        ModulesHelp
+}
+

@@ -1,0 +1,12 @@
+#%Module1.0
+##
+## Comsol/5.0 modulefile
+##
+proc ModulesHelp { } {
+    puts stderr "comsol/5.0 - sets the environment for Comsol 5.0"
+}
+
+module-whatis   "sets the environment for Comsol 5.0"
+
+prepend-path PATH    /software/comsol/comsol50/bin
+

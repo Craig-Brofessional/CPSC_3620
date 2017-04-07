@@ -1,0 +1,21 @@
+#%Module1.0
+##
+## 5.0.5-gpu  modulefile
+##
+proc ModulesHelp { } {
+    puts stderr "5.0.5-gpu - sets the environment for GROMACS 5.0.5 GPU version"
+}
+
+module-whatis   "sets the environment for GROMACS 5.0.5-gpu"
+
+module add gcc/4.8.1 openmpi/1.8.4 fftw/3.3.4-g481 cuda-toolkit/7.0.28 
+
+prepend-path LD_LIBRARY_PATH /software/gromacs/5.0.5-gpu/lib64
+prepend-path LIBRARY_PATH /software/gromacs/5.0.5-gpu/lib64
+prepend-path CPLUS_INCLUDE_PATH /software/gromacs/5.0.5-gpu/include
+prepend-path C_INCLUDE_PATH /software/gromacs/5.0.5-gpu/include
+prepend-path PATH /software/gromacs/5.0.5-gpu/bin
+prepend-path MANPATH /software/gromacs/5.0.5-gpu/share/man
+
+setenv GMXDATA "/software/gromacs/5.0.5-gpu/share/gromacs/top"
+

@@ -1,0 +1,23 @@
+#%Module1.0#####################################################################
+proc ModulesHelp { } {
+        global version prefix
+
+        puts stderr "\tgo - loads the environment for go"
+        puts stderr "\tThis adds $prefix/* to several environment variables."
+        puts stderr "\tVersion $version\n"
+}
+
+module-whatis    "loads the go environment"
+
+set    version        1.6.2
+set    prefix         /software/go/$version
+set    gopath         "$env(HOME)/gorepo"
+
+setenv          GOPATH        $gopath
+setenv          GOROOT        $prefix
+prepend-path    PATH          $prefix/bin
+prepend-path    PATH          "$env(HOME)/gorepo/bin"
+
+if {[file exists $gopath] eq 0} {
+    exec mkdir -p $gopath
+}

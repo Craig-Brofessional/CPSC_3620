@@ -1,0 +1,21 @@
+#%Module1.0
+##
+## 5.0.5-nogpu  modulefile
+##
+proc ModulesHelp { } {
+    puts stderr "5.0.5-nogpu - sets the environment for GROMACS 5.0.5 CPU only version"
+}
+
+module-whatis   "sets the environment for GROMACS 5.0.5-nogpu"
+
+module add gcc/4.8.1 openmpi/1.8.4 fftw/3.3.4-g481 
+
+prepend-path LD_LIBRARY_PATH /software/gromacs/5.0.5-nogpu/lib64
+prepend-path LIBRARY_PATH /software/gromacs/5.0.5-nogpu/lib64
+prepend-path CPLUS_INCLUDE_PATH /software/gromacs/5.0.5-nogpu/include
+prepend-path C_INCLUDE_PATH /software/gromacs/5.0.5-nogpu/include
+prepend-path PATH /software/gromacs/5.0.5-nogpu/bin
+prepend-path MANPATH /software/gromacs/5.0.5-nogpu/share/man
+
+setenv GMXDATA "/software/gromacs/5.0.5-nogpu/share/gromacs/top"
+

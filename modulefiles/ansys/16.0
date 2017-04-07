@@ -1,0 +1,39 @@
+#%Module1.0
+##
+## Ansys/16.0  modulefile
+##
+proc ModulesHelp { } {
+    puts stderr "ansys/16.0 - sets the environment for Ansys 16.0"
+}
+
+module-whatis   "sets the environment for Ansys 16.0"
+
+prepend-path LD_LIBRARY_PATH /software/ansys_inc/v160/ansys/lib/linx64
+
+prepend-path PATH /software/ansys_inc/v160/tgrid/bin
+prepend-path PATH /software/ansys_inc/v160/autodyn/bin
+prepend-path PATH /software/ansys_inc/v160/Icepak/bin
+prepend-path PATH /software/ansys_inc/v160/EKM/EKM-Desktop-14.0/bin
+prepend-path PATH /software/ansys_inc/v160/EKM/EKM-Desktop-14.0/bin/graphviz/bin
+prepend-path PATH /software/ansys_inc/v160/RSM/bin
+prepend-path PATH /software/ansys_inc/v160/Framework/bin
+prepend-path PATH /software/ansys_inc/v160/Framework/bin/Linux64
+prepend-path PATH /software/ansys_inc/v160/Tools/AddinSelector/bin
+prepend-path PATH /software/ansys_inc/v160/Tools/CheckSdkUsage/bin
+prepend-path PATH /software/ansys_inc/v160/Tools/mono/Linux64/bin
+prepend-path PATH /software/ansys_inc/v160/Tools/Build/bin
+prepend-path PATH /software/ansys_inc/v160/icemcfd/linux64_amd/icemcfd/output-interfaces/pvm3/bin
+prepend-path PATH /software/ansys_inc/v160/icemcfd/linux64_amd/bin
+prepend-path PATH /software/ansys_inc/v160/icemcfd/linux64_amd/dif/ug/lib/ug/tcl/bin
+prepend-path PATH /software/ansys_inc/v160/icemcfd/linux64_amd/dif/ug/bin
+prepend-path PATH /software/ansys_inc/v160/aisol/bin
+prepend-path PATH /software/ansys_inc/v160/ansys/intelmpi/linx64/bin
+prepend-path PATH /software/ansys_inc/v160/ansys/hpmpi/linx64/bin
+prepend-path PATH /software/ansys_inc/v160/ansys/ac4/bin
+prepend-path PATH /software/ansys_inc/v160/TurboGrid/bin
+prepend-path PATH /software/ansys_inc/v160/CFD-Post/bin
+prepend-path PATH /software/ansys_inc/v160/CFX/bin
+prepend-path PATH /software/ansys_inc/v160/polyflow/bin
+prepend-path PATH /software/ansys_inc/v160/fluent/bin
+prepend-path PATH /software/ansys_inc/v160/ansys/bin
+

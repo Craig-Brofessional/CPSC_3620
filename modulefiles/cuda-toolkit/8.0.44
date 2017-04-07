@@ -1,0 +1,50 @@
+#%Module1.0#####################################################################
+##
+## cuda-toolkit/8.0.44 modulefile
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\tcuda-toolkit/8.0.44 module"
+}
+
+module-whatis   "Set up environment for CUDA Toolkit 8.0.44"
+
+set hostname [ uname nodename ]
+
+# for Tcl script use only
+set     version      "3.2.6"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+setenv        CUDA_INSTALL_PATH           "/software/cuda-toolkit/8.0.44"
+setenv        CUDA_SEARCH_PATH            "/usr/lib64/nvidia"
+setenv        CUDA_ROOT           	  "/software/cuda-toolkit/8.0.44"
+
+prepend-path  GLPATH             "/usr/lib64/nvidia"
+prepend-path  GLLINK             "-L/usr/lib64/nvidia"
+#prepend-path  DFLT_PATH          "/usr/lib64"
+# prepend-path  LIBRARIES          "/usr/lib64/nvidia"
+prepend-path  PATH               "$env(CUDA_INSTALL_PATH)/samples/bin/linux/release"
+prepend-path  PATH               "$env(CUDA_INSTALL_PATH)/open64/bin"
+prepend-path  PATH               "$env(CUDA_INSTALL_PATH)/computeprof/bin"
+prepend-path  PATH               "$env(CUDA_INSTALL_PATH)/bin"
+prepend-path  LIBRARY_PATH       "/usr/lib/nvidia"
+prepend-path  LIBRARY_PATH       "/usr/lib64/nvidia"
+prepend-path  LPATH              "/usr/lib/nvidia"
+prepend-path  LPATH              "/usr/lib64/nvidia"
+#prepend-path  LPATH              "/usr/lib64"
+prepend-path  LD_LIBRARY_PATH    "/usr/lib/nvidia"
+prepend-path  LD_LIBRARY_PATH    "$env(CUDA_INSTALL_PATH)/open64/lib"
+prepend-path  LD_LIBRARY_PATH    "$env(CUDA_INSTALL_PATH)/lib"
+prepend-path  LD_LIBRARY_PATH    "$env(CUDA_INSTALL_PATH)/lib64"
+prepend-path  LIBRARY_PATH       "$env(CUDA_INSTALL_PATH)/lib64"
+prepend-path  LD_LIBRARY_PATH    "/usr/lib64/nvidia"
+#prepend-path  LD_LIBRARY_PATH    "/usr/lib64"
+prepend-path  C_INCLUDE_PATH     "$env(CUDA_INSTALL_PATH)/include"
+prepend-path  CPLUS_INCLUDE_PATH     "$env(CUDA_INSTALL_PATH)/include"
+
+if [ module-info mode display ] {
+        ModulesHelp
+}

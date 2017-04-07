@@ -1,0 +1,17 @@
+#%Module1.0
+##
+## nwchem/6.5-ib  modulefile
+##
+proc ModulesHelp { } {
+    puts stderr "nwchem/6.5-ib - sets the environment for NWChem 6.5-ib"
+}
+
+module-whatis   "sets the environment for NWChem 6.5-ib"
+
+module add intel/15.0
+module add openmpi/1.8.4
+
+prepend-path PATH /software/nwchem/6.5-ib/bin
+
+setenv NWCHEM_BASIS_LIBRARY /software/nwchem/6.5-ib/data/libraries
+

@@ -1,0 +1,35 @@
+#%Module1.0#####################################################################
+##
+## gnuplot/5.0.2  modulefile
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\tgnuplot 5.0.2 module"
+        puts stderr "\t****************************************************"
+        puts stderr "\n\t  This module sets up the following environment"
+        puts stderr "\t  variables for the gnuplot :"
+        puts stderr "\t      PATH"
+        puts stderr "\t      LD_LIBRARY_PATH"
+        puts stderr "\n\t  Version $version\n"
+        puts stderr "\t****************************************************\n"
+}
+
+module add gcc/5.3.0
+
+module-whatis	"Gnuplot 5.0.2 module"
+
+# for Tcl script use only
+set     version      "3.2.6"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+prepend-path  PATH                 /software/gnuplot/5.0.2/bin
+prepend-path  LD_LIBRARY_PATH      /software/gnuplot/5.0.2/lib
+prepend-path  MANPATH              /software/gnuplot/5.0.2/share/man
+
+if [ module-info mode display ] {
+        ModulesHelp
+}
+

@@ -1,0 +1,46 @@
+#%Module1.0#####################################################################
+##
+## hdp/cypress  modulefile
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\n\tHadoop Cypress module"
+        puts stderr "\t****************************************************"
+        puts stderr "\n\t  This module sets up the following aliases"
+        puts stderr "\t  to enable access to Clemson Cypress cluster:"
+        puts stderr "\t      hdfs"
+        puts stderr "\t      yarn"
+        puts stderr "\t      kinit,klist,kdestroy"
+        puts stderr "\t      spark-shell,pyspark,spark-sql,sparkR,spark-submit"
+        puts stderr "\n\t  Version $version\n"
+        puts stderr "\t****************************************************\n"
+}
+
+module-whatis	"Set up aliases for Hadoop Cypress through Singularity"
+module add singularity/2.2
+
+# Set up aliases for HDP related commands
+set-alias hdfs {hdp-helper.sh /usr/bin/hdfs $*}
+set-alias kinit {hdp-helper.sh /usr/bin/kinit $*}
+set-alias klist {hdp-helper.sh /usr/bin/klist $*}
+set-alias kdestroy {hdp-helper.sh /usr/bin/kdestroy $*}
+set-alias pyspark {hdp-helper.sh /usr/bin/pyspark $*}
+set-alias sparkR {hdp-helper.sh /usr/bin/sparkR $*}
+set-alias spark-shell {hdp-helper.sh /usr/bin/spark-shell $*}
+set-alias spark-sql {hdp-helper.sh /usr/bin/spark-sql $*}
+set-alias spark-submit {hdp-helper.sh /usr/bin/spark-submit $*}
+set-alias yarn {hdp-helper.sh /usr/bin/yarn $*}
+
+# for Tcl script use only
+set     version      "3.2.6"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+prepend-path	PATH	/software/hdp/6.0
+
+if [ module-info mode display ] {
+        ModulesHelp
+}
+

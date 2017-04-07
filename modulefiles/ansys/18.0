@@ -1,0 +1,40 @@
+#%Module1.0
+##
+## Ansys/18.0  modulefile
+##
+proc ModulesHelp { } {
+    puts stderr "ansys/18.0 - sets the environment for Ansys 18.0"
+}
+
+module-whatis   "sets the environment for Ansys 18.0"
+
+prepend-path LD_LIBRARY_PATH /software/ansys_inc/v180/ansys/lib/linx64
+
+prepend-path PATH /software/ansys_inc/v180/tgrid/bin
+prepend-path PATH /software/ansys_inc/v180/autodyn/bin
+prepend-path PATH /software/ansys_inc/v180/Icepak/bin
+prepend-path PATH /software/ansys_inc/v180/EKM/EKM-Desktop-14.0/bin
+prepend-path PATH /software/ansys_inc/v180/EKM/EKM-Desktop-14.0/bin/graphviz/bin
+prepend-path PATH /software/ansys_inc/v180/RSM/bin
+prepend-path PATH /software/ansys_inc/v180/Framework/bin
+prepend-path PATH /software/ansys_inc/v180/Framework/bin/Linux64
+prepend-path PATH /software/ansys_inc/v180/Tools/AddinSelector/bin
+prepend-path PATH /software/ansys_inc/v180/Tools/CheckSdkUsage/bin
+prepend-path PATH /software/ansys_inc/v180/Tools/mono/Linux64/bin
+prepend-path PATH /software/ansys_inc/v180/Tools/Build/bin
+prepend-path PATH /software/ansys_inc/v180/icemcfd/linux64_amd/icemcfd/output-interfaces/pvm3/bin
+prepend-path PATH /software/ansys_inc/v180/icemcfd/linux64_amd/bin
+prepend-path PATH /software/ansys_inc/v180/icemcfd/linux64_amd/dif/ug/lib/ug/tcl/bin
+prepend-path PATH /software/ansys_inc/v180/icemcfd/linux64_amd/dif/ug/bin
+prepend-path PATH /software/ansys_inc/v180/aisol/bin
+prepend-path PATH /software/ansys_inc/v180/ansys/intelmpi/linx64/bin
+prepend-path PATH /software/ansys_inc/v180/ansys/hpmpi/linx64/bin
+prepend-path PATH /software/ansys_inc/v180/ansys/ac4/bin
+prepend-path PATH /software/ansys_inc/v180/TurboGrid/bin
+prepend-path PATH /software/ansys_inc/v180/CFD-Post/bin
+prepend-path PATH /software/ansys_inc/v180/CFX/bin
+prepend-path PATH /software/ansys_inc/v180/polyflow/bin
+prepend-path PATH /software/ansys_inc/v180/fluent/bin
+prepend-path PATH /software/ansys_inc/v180/ansys/bin
+prepend-path PATH /software/ansys_inc/v180/AnsysEM/AnsysEM18.0/Linux64
+

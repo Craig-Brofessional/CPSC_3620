@@ -1,0 +1,17 @@
+#%Module1.0
+##
+## 1.48.04  modulefile
+##
+proc ModulesHelp { } {
+    puts stderr "1.48.04 sets up the environment for espeak 1.48.04"
+}
+
+module-whatis   "sets up the environment for espeak 1.48.04"
+
+prepend-path LD_LIBRARY_PATH /software/espeak/lib
+prepend-path LIBRARY_PATH /software/espeak/lib
+prepend-path CPLUS_INCLUDE_PATH /software/espeak/include
+prepend-path C_INCLUDE_PATH /software/espeak/include
+prepend-path LD_LIBRARY_PATH /software/espeak/src
+prepend-path LIBRARY_PATH /software/espeak/src
+prepend-path PATH /software/espeak/src

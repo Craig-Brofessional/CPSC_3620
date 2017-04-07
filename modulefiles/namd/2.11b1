@@ -1,0 +1,14 @@
+#%Module1.0
+##
+## namd/2.11b1  modulefile
+##
+proc ModulesHelp { } {
+    puts stderr "namd/2.11b1 - sets the environment for NAMD (2.11b1 non GPU version)"
+}
+
+module-whatis   "sets the environment for NAMD 2.11b1 version"
+
+module add intel/15.0 openmpi/1.8.4 
+
+prepend-path PATH /software/namd/2.11b1
+

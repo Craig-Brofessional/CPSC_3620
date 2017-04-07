@@ -1,0 +1,44 @@
+#%Module1.0#####################################################################
+##
+## intel/12.1 modulefile
+##
+proc ModulesHelp { } {
+        puts stderr "intel/12.1 - sets the environment for Intel 12.1"
+}
+
+module-whatis   "Set up environment for Intel 12.1 Compiler"
+
+# Make sure no other hpc modulefiles are loaded before loading this module
+eval set [ array get env MODULESHOME ]
+
+setenv INTEL_LICENSE_FILE /software/intel/licenses
+setenv LANGUAGE_TERRITORY en_US
+
+setenv MKLROOT /software/intel/composer_xe_2011_sp1.10.319/mkl
+setenv FPATH /software/intel/composer_xe_2011_sp1.10.319/mkl/include
+
+prepend-path PATH /software/intel/composer_xe_2011_sp1.10.319/bin/mpirt/bin/intel64
+prepend-path PATH /software/intel/composer_xe_2011_sp1.10.319/bin/intel64
+
+prepend-path MANPATH /software/intel/composer_xe_2011_sp1.10.319/man/en_US
+
+prepend-path LD_LIBRARY_PATH /software/intel/composer_xe_2011_sp1.10.319/mkl/lib/intel64
+prepend-path LD_LIBRARY_PATH /software/intel/composer_xe_2011_sp1.10.319/mpirt/lib/intel64
+prepend-path LD_LIBRARY_PATH /software/intel/composer_xe_2011_sp1.10.319/compiler/lib/intel64
+
+prepend-path NLSPATH  /software/intel/composer_xe_2011_sp1.10.319/mkl/lib/intel64/local/en_US
+prepend-path NLSPATH  /software/intel/composer_xe_2011_sp1.10.319/compiler/lib/locale/en_US
+
+
+prepend-path CPATH /software/intel/composer_xe_2011_sp1.10.319/mkl/include
+prepend-path INCLUDE /software/intel/composer_xe_2011_sp1.10.319/mkl/include
+
+setenv CC   icc
+setenv CXX  icpc
+setenv FC   ifort
+setenv F77  ifort
+setenv F90  ifort
+
+if [ module-info mode display ] {
+        ModulesHelp
+}

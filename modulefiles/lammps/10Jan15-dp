@@ -1,0 +1,15 @@
+#%Module1.0
+##
+## lammps/10Jan15-dp  modulefile
+##
+proc ModulesHelp { } {
+    puts stderr "lammps/10Jan15-dp - sets the environment for LAMMPS 10Jan15-dp"
+}
+
+module-whatis   "sets the environment for LAMMPS 10Jan15-dp"
+
+module add intel/15.0
+module add openmpi/1.6.4
+
+prepend-path PATH /software/lammps/10Jan15-dp/bin
+

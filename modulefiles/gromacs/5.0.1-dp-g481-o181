@@ -1,0 +1,21 @@
+#%Module1.0
+##
+## 5.0.1-dp-g481-o181  modulefile
+##
+proc ModulesHelp { } {
+    puts stderr "5.0.1-dp-g481-o181 - sets the environment for GROMACS 5.0.1-dp-g481-o181"
+}
+
+module-whatis   "sets the environment for GROMACS 5.0.1-dp-g481-o181"
+
+module add gcc/4.8.1 openmpi/1.8.1 cuda-toolkit/6.0.37
+
+prepend-path LD_LIBRARY_PATH /software/gromacs/5.0.1-dp-g481-o181/lib64
+prepend-path LIBRARY_PATH /software/gromacs/5.0.1-dp-g481-o181/lib64
+prepend-path CPLUS_INCLUDE_PATH /software/gromacs/5.0.1-dp-g481-o181/include
+prepend-path C_INCLUDE_PATH /software/gromacs/5.0.1-dp-g481-o181/include
+prepend-path PATH /software/gromacs/5.0.1-dp-g481-o181/bin
+prepend-path MANPATH /software/gromacs/5.0.1-dp-g481-o181/share/man
+
+setenv GMXDATA "/software/gromacs/5.0.1-dp-g481-o181/share/gromacs/top"
+

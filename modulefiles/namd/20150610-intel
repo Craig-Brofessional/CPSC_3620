@@ -1,0 +1,14 @@
+#%Module1.0
+##
+## namd/20150610-intel  modulefile
+##
+proc ModulesHelp { } {
+    puts stderr "namd/20150610-intel - sets the environment for NAMD CVS version from 2015-06-10 (pre 2.11)"
+}
+
+module-whatis   "sets the environment for NAMD 20150610 version (pre 2.11)"
+
+module add intel/15.0 openmpi/1.8.4 fftw/3.3.4-g481
+
+prepend-path PATH /software/namd/20150610-intel
+
